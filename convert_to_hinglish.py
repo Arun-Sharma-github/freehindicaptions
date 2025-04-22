@@ -46,7 +46,7 @@ apart from this conversion format nothing else you will respond
         with open(full_srt_path, "w", encoding="utf-8") as f:
             f.write(generated_text)
 
-        print(f"Successfully converted to Hinglish and saved to {full_srt_path}")
+        print(f"Successfully converted to Hinglish")
         return full_srt_path
         
     except Exception as e:
