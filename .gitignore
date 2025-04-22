@@ -6,14 +6,19 @@ __pycache__/
 # C extensions
 *.so
 
+
+
 # Distribution / packaging
 .Python
 build/
 develop-eggs/
 dist/
 downloads/
+uploads/
+srt_for_audio/
 eggs/
 .eggs/
+.virtual
 lib/
 lib64/
 parts/
@@ -172,3 +177,4 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+

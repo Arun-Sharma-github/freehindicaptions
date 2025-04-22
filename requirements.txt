@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+librosa
+vosk
+python-dotenv
+python-multipart
