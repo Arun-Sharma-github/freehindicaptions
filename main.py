@@ -20,12 +20,12 @@ logger = logging.getLogger(__name__)
 
 
 # Rate limiter
-# from slowapi import Limiter, _rate_limit_exceeded_handler
-# from slowapi.util import get_remote_address
-# from slowapi.errors import RateLimitExceeded
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
 
 # Security headers
-# from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.middleware.base import BaseHTTPMiddleware
 
 
 app = FastAPI(title="Free Hindi Captions Generator")
@@ -55,10 +55,10 @@ app.add_middleware(
 )
 
 
-# # Rate limiting setup
-# limiter = Limiter(key_func=get_remote_address)
-# app.state.limiter = limiter
-# app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+# Rate limiting setup
+limiter = Limiter(key_func=get_remote_address)
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 
 
@@ -69,7 +69,7 @@ os.makedirs(UPLOAD_DIR, exist_ok=True)
 os.makedirs(SRT_DIR, exist_ok=True)
 
 @app.post("/generate-captions", response_class=FileResponse)
-# @limiter.limit("5/minute")  # ⏱️ 5 requests per minute per IP
+@limiter.limit("2/minute")  # ⏱️ 5 requests per minute per IP
 async def generate_captions(request: Request, file: UploadFile = File(...)):
     try:
         logger.info(f"Received file upload request: {file.filename}")

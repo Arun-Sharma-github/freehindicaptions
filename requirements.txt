@@ -6,3 +6,4 @@ python-dotenv
 python-multipart
 werkzeug
 slowapi
+# pymongo[srv]
