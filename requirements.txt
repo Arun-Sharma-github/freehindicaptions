@@ -4,3 +4,5 @@ librosa
 vosk
 python-dotenv
 python-multipart
+werkzeug
+slowapi
