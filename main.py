@@ -46,13 +46,13 @@ app = FastAPI(title="Free Hindi Captions Generator")
 # app.add_middleware(SecurityHeadersMiddleware)
 
 # CORS
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["https://freehindicaptions.com"],
-    allow_credentials=True,
-    allow_methods=["POST"],
-    allow_headers=["*"],
-)
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["https://freehindicaptions.com"],
+#     allow_credentials=True,
+#     allow_methods=["POST"],
+#     allow_headers=["*"],
+# )
 
 
 # Rate limiting setup
