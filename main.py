@@ -33,26 +33,26 @@ app = FastAPI(title="Free Hindi Captions Generator")
 
 
 # Middleware: Security headers
-# class SecurityHeadersMiddleware(BaseHTTPMiddleware):
-#     async def dispatch(self, request, call_next):
-#         response = await call_next(request)
-#         response.headers['X-Content-Type-Options'] = 'nosniff'
-#         response.headers['X-XSS-Protection'] = '1; mode=block'
-#         response.headers['X-Frame-Options'] = 'DENY'
-#         response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'
-#         response.headers['Content-Security-Policy'] = "default-src 'self'"
-#         return response
+class SecurityHeadersMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request, call_next):
+        response = await call_next(request)
+        response.headers['X-Content-Type-Options'] = 'nosniff'
+        response.headers['X-XSS-Protection'] = '1; mode=block'
+        response.headers['X-Frame-Options'] = 'DENY'
+        response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'
+        response.headers['Content-Security-Policy'] = "default-src 'self'"
+        return response
 
 # app.add_middleware(SecurityHeadersMiddleware)
 
 # CORS
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=["https://freehindicaptions.com"],
-#     allow_credentials=True,
-#     allow_methods=["POST"],
-#     allow_headers=["*"],
-# )
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://freehindicaptions.com","http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["POST"],
+    allow_headers=["*"],
+)
 
 
 # Rate limiting setup
