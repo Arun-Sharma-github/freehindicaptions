@@ -43,7 +43,9 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
         response.headers['Content-Security-Policy'] = "default-src 'self'"
         return response
 
-# app.add_middleware(SecurityHeadersMiddleware)
+app.add_middleware(SecurityHeadersMiddleware)
+
+#noice
 
 # CORS
 app.add_middleware(
