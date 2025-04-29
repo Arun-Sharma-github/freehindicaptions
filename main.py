@@ -7,7 +7,7 @@ from datetime import datetime
 from convert_mp3_to_wav import convert_mp3_to_wav
 from transcribe import transcribe_to_youtube_shorts_srt_notebook
 from convert_to_hinglish import convert_to_hinglish
-from fastapi.middleware.cors import CORSMiddleware
+# from fastapi.middleware.cors import CORSMiddleware
 from werkzeug.utils import secure_filename
 
 
@@ -43,18 +43,18 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
         response.headers['Content-Security-Policy'] = "default-src 'self'"
         return response
 
-app.add_middleware(SecurityHeadersMiddleware)
+# app.add_middleware(SecurityHeadersMiddleware)
 
-#noice
+# #noice
 
-# CORS
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["https://freehindicaptions.com","http://localhost:3000"],
-    allow_credentials=True,
-    allow_methods=["POST"],
-    allow_headers=["*"],
-)
+# # CORS
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["https://freehindicaptions.com","http://localhost:3000"],
+#     allow_credentials=True,
+#     allow_methods=["POST"],
+#     allow_headers=["*"],
+# )
 
 
 # Rate limiting setup
