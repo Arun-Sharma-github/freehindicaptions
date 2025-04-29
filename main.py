@@ -49,7 +49,7 @@ app.add_middleware(SecurityHeadersMiddleware)
 # CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://freehindicaptions.com","http://localhost:3000","https://freehindicaptionsfrontend.vercel.app"],
+    allow_origins=["https://www.freehindicaptions.com","http://localhost:3000","https://freehindicaptionsfrontend.vercel.app","www.freehindicaptions.com","freehindicaptionsfrontend.vercel.app","freehindicaptions.com"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
